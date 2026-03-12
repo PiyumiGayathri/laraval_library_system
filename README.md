@@ -1,66 +1,300 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 📚 Library Management System (Laravel)
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A simple **Library Management System** built using the **Laravel framework**.  
+This system allows administrators to manage **books, users, and borrowing records** through a web interface.
 
-## About Laravel
+The project demonstrates **CRUD operations, relational database management, and Laravel MVC architecture**.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Screenshots
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+# Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Book Management
+- Add new books
+- Edit book details
+- Disable books (soft disable using status column)
+- Filter books by category
+- Track stock availability
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## User Management
+- Register new users
+- View registered users
+- Validation for:
+  - Unique email
+  - Unique NIC
+  - Unique mobile number
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Borrowing System
+- Borrow books
+- Track borrowed books
+- View borrowing history
+- Mark borrowed books as **Received**
+- Update borrowing status
 
-## Laravel Sponsors
+## Dashboard
+- Display statistics
+- Chart showing **borrowed books per category**
+- Data visualization using **Chart.js**
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+# System Architecture
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+The system follows the **Laravel MVC Architecture**:
+Request → Route → Controller → Model → Database
+↓
+View
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+# Technologies Used
 
-## Code of Conduct
+| Technology | Purpose |
+|------------|--------|
+| Laravel 10 | Backend Framework |
+| PHP 8+ | Server-side language |
+| MySQL | Database |
+| Blade | Laravel templating engine |
+| Bootstrap | Frontend UI |
+| Chart.js | Dashboard data visualization |
+| XAMPP | Local development environment |
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+---
 
-## Security Vulnerabilities
+# Project Structure
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+librarysystem
+│
+├── app
+│ ├── Http
+│ │ ├── Controllers
+│ │
+│ ├── Models
+│
+├── database
+│ ├── migrations
+│ ├── seeders
+│
+├── resources
+│ ├── views
+│ │ ├── books
+│ │ ├── users
+│ │ ├── borrow
+│
+├── routes
+│ └── web.php
+---
 
-## License
+## Database Structure
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Users
+
+| Column | Description |
+|------|-------------|
+| id | Primary Key |
+| first_name | User first name |
+| last_name | User last name |
+| email | Unique email |
+| mobile | Unique phone number |
+| nic | Unique NIC |
+| password | Hashed password |
+| registered_at | Registration timestamp |
+
+---
+
+## Books
+
+| Column | Description |
+|------|-------------|
+| id | Primary Key |
+| title | Book title |
+| author | Author name |
+| book_category_id | Category reference |
+| price | Book price |
+| stock | Available stock |
+| status | 0 = Active, 1 = Disabled |
+
+---
+
+## Book Categories
+
+| Column | Description |
+|------|-------------|
+| id | Primary Key |
+| name | Category name |
+
+---
+
+## Borrow Records
+
+| Column | Description |
+|------|-------------|
+| id | Primary Key |
+| users_id | Borrowing user |
+| books_id | Borrowed book |
+| borrowed_at | Borrow date |
+| returned_at | Return date |
+| status | 0 = Pending, 1 = Received |
+
+---
+
+# Installation Guide
+
+## Clone the repository
+
+│
+├── database_backup
+│ └── library.sql
+
+git clone https://github.com/yourusername/librarysystem.git
+
+---
+
+## Navigate to project folder
+
+
+cd librarysystem
+
+
+---
+
+## Install dependencies
+
+
+composer install
+
+
+---
+
+## Copy environment file
+
+
+cp .env.example .env
+
+
+---
+
+## Generate application key
+
+
+php artisan key:generate
+
+
+---
+
+## Configure database
+
+Edit the `.env` file and update the database settings:
+
+
+DB_DATABASE=librarysystem
+DB_USERNAME=root
+DB_PASSWORD=
+
+
+---
+
+## Import Database
+
+**Important**
+
+The **migration and seed files do not contain real data**.
+The actual database records are stored in the SQL dump located in:
+
+
+database_backup/library.sql
+
+
+Import it using **phpMyAdmin**:
+
+
+phpMyAdmin → Import → Select library.sql
+
+
+---
+
+## Run the project
+
+
+php artisan serve
+
+
+Open in browser:
+
+
+http://localhost:8000
+
+
+---
+
+# Example System Workflow
+
+## Borrow Book
+
+
+User → Select Book → Borrow → Record created
+
+
+## Return Book
+
+
+Admin → Click "Mark Received"
+→ Borrow status updated
+→ Book returned
+
+
+---
+
+# Validation Rules
+
+The system ensures:
+
+- Email must be unique
+- NIC must be unique
+- Mobile number must be unique
+- Required field validation
+
+Example:
+
+
+'email' => 'required|email|unique:users,email'
+
+
+---
+
+# Dashboard Analytics
+
+The dashboard includes:
+
+- Borrowed books statistics
+- Books per category
+- Data visualization using **Chart.js bar charts**
+
+---
+
+# Future Improvements
+
+Possible future enhancements:
+
+- Authentication system
+- Role based access (Admin / Librarian)
+- Book reservation system
+- Fine calculation for late returns
+- REST API integration
+- Search functionality
+- Notifications for due books
+
+---
+
+# Author
+
+**Piyumi Premachandra**
+
+---
+
+# License
+
+This project is developed for **educational purposes**.
