@@ -8,7 +8,12 @@ The project demonstrates **CRUD operations, relational database management, and 
 ---
 
 # Screenshots
-
+<img width="1902" height="890" alt="Screenshot (2816)" src="https://github.com/user-attachments/assets/3bbf3875-04e5-4c49-bcb0-52bc11f0977e" />
+<img width="1908" height="874" alt="Screenshot (2815)" src="https://github.com/user-attachments/assets/515a58cd-d119-48d9-adbf-f84ac236926d" />
+<img width="1897" height="884" alt="Screenshot (2814)" src="https://github.com/user-attachments/assets/31ea0468-9d98-4bbc-a8c7-c48d0500bb85" />
+<img width="1898" height="880" alt="Screenshot (2813)" src="https://github.com/user-attachments/assets/81e5636b-ecf6-4806-b0f3-03ab5524f260" />
+<img width="1906" height="883" alt="Screenshot (2812)" src="https://github.com/user-attachments/assets/193fc387-6477-4826-b36d-892c9de7c4dd" />
+<img width="1897" height="868" alt="dashboard" src="https://github.com/user-attachments/assets/e869d00a-c31f-4329-bf80-114508a61d15" />
 
 # Features
 
